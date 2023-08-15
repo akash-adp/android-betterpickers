@@ -1,17 +1,11 @@
 apply plugin: 'com.android.library'
-apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master/gradle-mvn-push.gradle' //contains fix for javadoc issues
-
 
 android {
-
-    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdk 31
 
     defaultConfig {
-        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
-        versionName project.VERSION_NAME
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        minSdkVersion 21
+        targetSdkVersion 31
     }
 
     buildTypes {
@@ -32,10 +26,10 @@ android {
     lintOptions {
         abortOnError false
     }
+    namespace 'com.codetroopers.betterpickers'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.android.support:appcompat-v7:25.0.1'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
 }

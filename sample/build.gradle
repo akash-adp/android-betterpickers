@@ -1,16 +1,14 @@
 apply plugin: 'com.android.application'
-apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master/gradle-mvn-push.gradle' //contains fix for javadoc issues
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.codetroopers.betterpickersapp"
-        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
-        versionName project.VERSION_NAME
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionName "1"
+        versionCode 1
     }
 
 
@@ -20,10 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.codetroopers.betterpickers.sample'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':library')
-    compile 'joda-time:joda-time:2.9.6'
+    implementation project(':library')
+    implementation 'joda-time:joda-time:2.9.6'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
 }
